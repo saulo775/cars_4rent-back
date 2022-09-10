@@ -1,12 +1,10 @@
 import express from "express";
 
+import router from "./routes";
+
 const app = express();
 app.use(express.json());
-
-app.post("/courses", (request, response) => {
-  const { name } = request.body;
-  return response.json({ name });
-});
+app.use(router);
 
 app.listen(5500, () => {
   console.log("Server running on port 5500");
