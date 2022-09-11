@@ -7,8 +7,17 @@ import {
 class EspecificationsRepository implements IEspecificationRepository {
   private especifications: Especification[];
 
-  constructor() {
+  private static INSTANCE: EspecificationsRepository;
+
+  private constructor() {
     this.especifications = [];
+  }
+
+  public static getInstance(): EspecificationsRepository {
+    if (!EspecificationsRepository.INSTANCE) {
+      EspecificationsRepository.INSTANCE = new EspecificationsRepository();
+    }
+    return EspecificationsRepository.INSTANCE;
   }
 
   create({ name, description }: ICreateEspecificationDTO): void {
