@@ -1,13 +1,13 @@
-import { EspecificationsRepository } from "../repositories/especifications/EspecificationsRepository";
+import { IEspecificationRepository } from "../../repositories/especifications/IEspecificationsRepository";
 
 interface IRequest {
   name: string;
   description: string;
 }
 
-class CreateEspecificationService {
+class CreateEspecificationUseCase {
   // instancio o meu repositorio
-  constructor(private especificationsRepository: EspecificationsRepository) {}
+  constructor(private especificationsRepository: IEspecificationRepository) {}
 
   // crio as regras de negocio
   execute({ name, description }: IRequest) {
@@ -22,4 +22,4 @@ class CreateEspecificationService {
   }
 }
 
-export { CreateEspecificationService };
+export { CreateEspecificationUseCase };
