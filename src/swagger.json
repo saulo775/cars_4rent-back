@@ -50,7 +50,7 @@
         "description": "List all categories",
         "responses": {
           "200": {
-            "description": "Succes",
+            "description": "Success",
             "content": {
               "Application/json": {
                 "schema": {
