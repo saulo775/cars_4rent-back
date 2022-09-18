@@ -1,11 +1,29 @@
 version: "3.7"
 
 services:
-  app: 
+  database:
+    image: postgres
+    container_name: database
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=senha123
+      - POSTGRES_DB=cars_4rent
+    volumes:
+      - pgdata:/data/postgres
+  app-cars_4rent: 
     build: .
-    container_name: cars_4rent
+    container_name: app-cars_4rent
     restart: always
     ports:
       - 3333:3333
     volumes:
-      - .:/user/app
+      - .:/usr/app
+    links:
+      - database
+    depends_on: 
+      - database
+volumes:
+  pgdata:
