@@ -3,7 +3,7 @@ version: "3.7"
 services:
   database:
     image: postgres
-    container_name: database
+    container_name: database_cars4rent
     restart: always
     ports:
       - 5432:5432
@@ -18,7 +18,7 @@ services:
     container_name: app-cars_4rent
     restart: always
     ports:
-      - 3333:3333
+      - 3336:3336
     volumes:
       - .:/usr/app
     links:
@@ -27,3 +27,4 @@ services:
       - database
 volumes:
   pgdata:
+    driver: local
