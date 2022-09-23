@@ -4,5 +4,10 @@
   "host": "localhost",
   "username": "postgres",
   "password": "senha123",
-  "database": "cars_4rent"
+  "database": "cars_4rent",
+  "migrations": ["./src/database/migrations/*.ts"],
+  "entities": ["./src/modules/**/entities/*.ts"],
+  "cli": {
+    "migrationsDir": "./src/database/migrations"
+  }
 }
